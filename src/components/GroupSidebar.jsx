@@ -7,11 +7,23 @@ export default function GroupSidebar({ groups, onSelectGroup }) {
             <ul className="group-list">
                 {groups.map((group, index) => (
                     <li key={index} onClick={() => onSelectGroup(group)}>
-                        <div className="group-icon">{group.name[0].toUpperCase()}</div> 
+                        <div className="group-icon">
+                            {getGroupInitials(group.name)}
+                        </div> 
                         <span>{group.name}</span>
                     </li>
                 ))}
             </ul>
         </div>
     );
+}
+
+
+function getGroupInitials(name){
+    const words = name.trim().split(' ');
+    if(words.length === 1){
+        return words[0].substring(0,2).toUpperCase();
+    }else{
+        return (words[0][0] + words[1][0]).toUpperCase();
+    }
 }

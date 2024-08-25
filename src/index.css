@@ -37,13 +37,15 @@ body {
     background-color: #6200ea;
     color: white;
     font-weight: bold;
+    padding: 2px;
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin-right: 0.5rem;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
 .notes-section {
