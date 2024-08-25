@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function Header({ selectedGroup }) {
     return (
-        <header className="header">
-            <h1>{selectedGroup ? selectedGroup : 'Select a Group'}</h1>
-        </header>
+        <div className="header">
+            {/* Only render the group name, which should be a string */}
+            <h1>{selectedGroup ? selectedGroup.name : 'Select a Group'}</h1>
+        </div>
     );
 }

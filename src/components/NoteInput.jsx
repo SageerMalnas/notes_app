@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function NoteInput({ onAddNote }) {
+export default function NoteInput({ onAddNote, selectedGroup }) {
     const [note, setNote] = useState('');
 
     const handleSend = () => {
@@ -12,6 +12,15 @@ export default function NoteInput({ onAddNote }) {
 
     return (
         <div className="note-input-container">
+            <ul className="note-list">
+                {selectedGroup && selectedGroup.notes.map((note, index) => (
+                    <li key={index}>
+                        <p>{note.content}</p>
+                        <small>Created: {new Date(note.created).toLocaleString()}</small>
+                        {note.updated && <small>Updated: {new Date(note.updated).toLocaleString()}</small>}
+                    </li>
+                ))}
+            </ul>
             <input
                 type="text"
                 value={note}
