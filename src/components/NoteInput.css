@@ -4,7 +4,10 @@
     margin-top: auto;
     padding: 0.5rem;
     border-top: 1px solid #ccc;
+    overflow: auto;
+    overflow-x: hidden;
 }
+
 
 .note-list {
     list-style-type: none;
@@ -12,20 +15,30 @@
     flex: 1;
     overflow-y: auto;
     margin-bottom: 1rem;
+    padding: 5px;
 }
+
 
 .note-list li {
     background-color: #f9f9f9;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    border-radius: 4px;
 }
+
+
+.note-list small {
+    display: flex;
+    justify-content: right;
+}
+
 
 .note-input-container input {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 0.5rem;
+    width: 100%;
+    
 }
 
 .note-input-container button {
@@ -37,6 +50,35 @@
     cursor: pointer;
 }
 
+.input-content{
+    display: flex;
+    flex-direction: row;
+    background: #001F8B;
+    padding: 25px;
+}
+
 .note-input-container button:disabled {
     background-color: #ccc;
+}
+
+
+.note-list::-webkit-scrollbar,
+.note-input-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.note-list::-webkit-scrollbar-track,
+.note-input-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.note-list::-webkit-scrollbar-thumb,
+.note-input-container::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+}
+
+.note-list::-webkit-scrollbar-thumb:hover,
+.note-input-container::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

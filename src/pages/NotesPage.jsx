@@ -47,7 +47,7 @@ export default function NotesPage() {
     const handleCreateGroup = () => {
         if (newGroupName.trim()) {
             const defaultNote = {
-                content: `Default note for ${newGroupName}`,
+                content: 'Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their days writing projects, words are already flowing from their fingers.',
                 created: new Date().toISOString(),
                 updated: null
             };

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './NoteInput.css';
+import { faForward } from '@fortawesome/free-solid-svg-icons';
 
 export default function NoteInput({ onAddNote, selectedGroup }) {
     const [note, setNote] = useState('');
@@ -17,20 +19,21 @@ export default function NoteInput({ onAddNote, selectedGroup }) {
                 {selectedGroup && selectedGroup.notes.map((note, index) => (
                     <li key={index}>
                         <p>{note.content}</p>
-                        <small>Created: {new Date(note.created).toLocaleString()}</small>
-                        {note.updated && <small>Updated: {new Date(note.updated).toLocaleString()}</small>}
+                        <small>{new Date(note.created).toLocaleString()}</small>
                     </li>
                 ))}
             </ul>
-            <input
-                type="text"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                placeholder="Type a note..."
-            />
-            <button onClick={handleSend} disabled={!note.trim()}>
-                Send
-            </button>
+            <div className="input-content">
+                <input
+                    type="text"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    placeholder="Enter your text here..."
+                />
+                <button onClick={handleSend} disabled={!note.trim()}>
+                    <FontAwesomeIcon icon={faForward} />
+                </button>
+            </div>
         </div>
     );
 }
