@@ -1,0 +1,104 @@
+.notes-page {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    position: fixed;
+    background: #DAE5F5;
+}
+
+.notes-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-group-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.create-group-icon {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    left: 160px;
+    top: 500px;
+    position: fixed;
+    background: #16008B;
+    padding: 5px;
+    color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal-content input {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.modal-content button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:first-of-type {
+    background-color: #6200ea;
+}
+
+.modal-content button:last-of-type {
+    background-color: #ccc;
+    color: #333;
+}
+
+
+.default-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.default-image {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.default-image-container p{
+    width: 55%;
+}

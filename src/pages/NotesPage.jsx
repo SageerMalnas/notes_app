@@ -3,6 +3,10 @@ import GroupSidebar from '../components/GroupSidebar';
 import NoteInput from '../components/NoteInput';
 import Header from '../components/Header';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import './NotesPage.css';
+import backgroundImage from '../assets/backg.png';
 
 export default function NotesPage() {
     const [groups, setGroups] = useLocalStorage('groups', []);
@@ -12,7 +16,7 @@ export default function NotesPage() {
 
     useEffect(() => {
         if (groups.length > 0 && !selectedGroup) {
-            setSelectedGroup(groups[0]);
+            setSelectedGroup(groups[0]);  // Optionally, remove this line if you don't want to auto-select the first group
         }
     }, [groups]);
 
@@ -43,13 +47,7 @@ export default function NotesPage() {
     const handleCreateGroup = () => {
         if (newGroupName.trim()) {
             const defaultNote = {
-                content: `Another productive way to use this tool to begin a 
-                daily writing routine. One way is to generate a random 
-                paragraph with the intention to try to rewrite it while still
-                 keeping the original meaning. The purpose here is to just get 
-                 the writing started so that when the writer goes onto their 
-                 day's writing projects, words are already flowing from their 
-                 fingers. ${newGroupName}.`,
+                content: `Default note for ${newGroupName}`,
                 created: new Date().toISOString(),
                 updated: null
             };
@@ -84,10 +82,30 @@ export default function NotesPage() {
                 onSelectGroup={handleSelectGroup}
             />
             <div className="notes-section">
-                <Header selectedGroup={selectedGroup} />
-                <NoteInput selectedGroup={selectedGroup} onAddNote={handleAddNote} />
+                {selectedGroup ? (
+                    <>
+                        <Header selectedGroup={selectedGroup} />
+                        <NoteInput selectedGroup={selectedGroup} onAddNote={handleAddNote} />
 
-                <button onClick={() => setShowModal(true)} className="create-group-btn">Create Group</button>
+                    </>
+                ) : (
+                    <div className="default-image-container">
+                        <img
+                            src={backgroundImage}
+                            alt="Default placeholder"
+                            className="default-image"
+                        />
+                        <h1>Pocket Notes</h1>
+                        <p>Send and receive messages without keeping your phone online.
+Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+                    </div>
+                )}
+
+                <FontAwesomeIcon
+                    icon={faPlus}
+                    className="create-group-icon"
+                    onClick={() => setShowModal(true)}
+                />
 
                 {showModal && (
                     <div className="modal" onClick={handleOutsideClick}>

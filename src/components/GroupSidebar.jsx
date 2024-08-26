@@ -1,9 +1,10 @@
 import React from 'react';
+import './GroupSidebar.css';
 
 export default function GroupSidebar({ groups, onSelectGroup }) {
     return (
         <div className="group-sidebar">
-            <h2>Groups</h2>
+            <h2>Pocket Notes</h2>
             <ul className="group-list">
                 {groups.map((group, index) => (
                     <li key={index} onClick={() => onSelectGroup(group)}>

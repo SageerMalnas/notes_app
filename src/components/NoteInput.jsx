@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './NoteInput.css';
 
 export default function NoteInput({ onAddNote, selectedGroup }) {
     const [note, setNote] = useState('');

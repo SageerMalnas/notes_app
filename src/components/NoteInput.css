@@ -1,0 +1,42 @@
+.note-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    padding: 0.5rem;
+    border-top: 1px solid #ccc;
+}
+
+.note-list {
+    list-style-type: none;
+    padding: 0;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.note-list li {
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.note-input-container input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.note-input-container button {
+    padding: 0.5rem 1rem;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.note-input-container button:disabled {
+    background-color: #ccc;
+}
