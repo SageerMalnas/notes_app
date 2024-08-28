@@ -14,28 +14,21 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.create-group-btn {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #6200ea;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 
 .create-group-icon {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    left: 160px;
-    top: 500px;
+    margin-bottom: 5%;
+    left: 25%;
+    bottom: 0;
     position: fixed;
     background: #16008B;
-    padding: 5px;
+    padding: 6px;
     color: white;
 }
+
+
 
 .modal {
     position: fixed;
@@ -101,4 +94,37 @@
 
 .default-image-container p{
     width: 55%;
+}
+
+.footer{
+    position: fixed;
+    display: flex;
+    /* width: 100%; */
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+}
+
+.color-picker-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.color-picker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.color-picker:hover {
+    transform: scale(1.1);
+}
+
+.selected-color {
+    border: 2px solid #000; 
 }

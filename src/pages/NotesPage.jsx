@@ -7,12 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import './NotesPage.css';
 import backgroundImage from '../assets/backg.png';
+import lock from '../assets/Vector.png';
 
 export default function NotesPage() {
     const [groups, setGroups] = useLocalStorage('groups', []);
     const [selectedGroup, setSelectedGroup] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [newGroupName, setNewGroupName] = useState('');
+    const [selectedColor, setSelectedColor] = useState('#000000');
 
     useEffect(() => {
         if (groups.length > 0 && !selectedGroup) {
@@ -54,13 +56,15 @@ export default function NotesPage() {
 
             const newGroup = {
                 name: newGroupName,
-                notes: [defaultNote]
+                notes: [defaultNote],
+                color: selectedColor
             };
 
             const updatedGroups = [...groups, newGroup];
             setGroups(updatedGroups);
             setSelectedGroup(newGroup);
             setNewGroupName('');
+            setSelectedColor(selectedColor)
             setShowModal(false);
         }
     };
@@ -74,6 +78,7 @@ export default function NotesPage() {
             setShowModal(false);
         }
     };
+    const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A8', '#A833FF', '#33FFD5', '#FFD700', '#FF69B4'];
 
     return (
         <div className="notes-page">
@@ -97,7 +102,17 @@ export default function NotesPage() {
                         />
                         <h1>Pocket Notes</h1>
                         <p>Send and receive messages without keeping your phone online.
-Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+                            Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+                        <div className='footer'>
+                            <img
+                                src={lock}
+                                className='lock-image'
+                            />
+                            <p>
+                                end-to-end encrypted
+                            </p>
+                        </div>
+
                     </div>
                 )}
 
@@ -107,21 +122,32 @@ Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
                     onClick={() => setShowModal(true)}
                 />
 
-                {showModal && (
-                    <div className="modal" onClick={handleOutsideClick}>
-                        <div className="modal-content">
-                            <h3>Create New Group</h3>
-                            <input
-                                type="text"
-                                value={newGroupName}
-                                onChange={(e) => setNewGroupName(e.target.value)}
-                                placeholder="Group Name"
-                            />
-                            <button onClick={handleCreateGroup}>Create</button>
-                            <button onClick={() => setShowModal(false)}>Cancel</button>
-                        </div>
-                    </div>
-                )}
+{showModal && (
+    <div className="modal" onClick={handleOutsideClick}>
+        <div className="modal-content">
+            <h3>Create New Group</h3>
+            <input
+                type="text"
+                value={newGroupName}
+                onChange={(e) => setNewGroupName(e.target.value)}
+                placeholder="Group Name"
+            />
+            <div className="color-picker-container">
+                {colors.map((color) => (
+                    <div
+                        key={color}
+                        className={`color-picker ${color === selectedColor ? 'selected-color' : ''}`}
+                        style={{ backgroundColor: color }}
+                        onClick={() => setSelectedColor(color)}
+                    ></div>
+                ))}
+            </div>
+            <button onClick={handleCreateGroup}>Create</button>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
+        </div>
+    </div>
+)}
+
             </div>
         </div>
     );

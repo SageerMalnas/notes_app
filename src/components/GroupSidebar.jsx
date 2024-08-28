@@ -7,8 +7,12 @@ export default function GroupSidebar({ groups, onSelectGroup }) {
             <h2>Pocket Notes</h2>
             <ul className="group-list">
                 {groups.map((group, index) => (
-                    <li key={index} onClick={() => onSelectGroup(group)}>
-                        <div className="group-icon">
+                    <li key={index} onClick={() => onSelectGroup(group)}
+                        style={{ display: 'flex', alignItems: 'center' }}
+                    >
+                        <div className="group-icon"
+                         style={{ backgroundColor: group.color || '#000000' }}
+                        >
                             {getGroupInitials(group.name)}
                         </div> 
                         <span>{group.name}</span>
