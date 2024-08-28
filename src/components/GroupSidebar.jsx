@@ -8,6 +8,7 @@ export default function GroupSidebar({ groups, onSelectGroup }) {
             <ul className="group-list">
                 {groups.map((group, index) => (
                     <li key={index} onClick={() => onSelectGroup(group)}
+                    className={group.name === onSelectGroup?.name ? 'active' : ''}
                         style={{ display: 'flex', alignItems: 'center' }}
                     >
                         <div className="group-icon"

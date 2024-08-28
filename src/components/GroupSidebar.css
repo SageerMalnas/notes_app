@@ -19,11 +19,23 @@
     margin-bottom: 1.5rem;
 }
 
+
 .group-list li {
     display: flex;
     align-items: center;
     padding: 0.5rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.group-list li:hover{
+    background-color: #aeadad;
+    border-radius: 5px;
+}
+
+.group-list li.active{
+    background-color: #aeadad ;
+    border-radius: 5px;
 }
 
 .group-icon {

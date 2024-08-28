@@ -122,31 +122,31 @@ export default function NotesPage() {
                     onClick={() => setShowModal(true)}
                 />
 
-{showModal && (
-    <div className="modal" onClick={handleOutsideClick}>
-        <div className="modal-content">
-            <h3>Create New Group</h3>
-            <input
-                type="text"
-                value={newGroupName}
-                onChange={(e) => setNewGroupName(e.target.value)}
-                placeholder="Group Name"
-            />
-            <div className="color-picker-container">
-                {colors.map((color) => (
-                    <div
-                        key={color}
-                        className={`color-picker ${color === selectedColor ? 'selected-color' : ''}`}
-                        style={{ backgroundColor: color }}
-                        onClick={() => setSelectedColor(color)}
-                    ></div>
-                ))}
-            </div>
-            <button onClick={handleCreateGroup}>Create</button>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
-        </div>
-    </div>
-)}
+                {showModal && (
+                    <div className="modal" onClick={handleOutsideClick}>
+                        <div className="modal-content">
+                            <h3>Create New Group</h3>
+                            <input
+                                type="text"
+                                value={newGroupName}
+                                onChange={(e) => setNewGroupName(e.target.value)}
+                                placeholder="Group Name"
+                            />
+                            <div className="color-picker-container">
+                                {colors.map((color) => (
+                                    <div
+                                        key={color}
+                                        className={`color-picker ${color === selectedColor ? 'selected-color' : ''}`}
+                                        style={{ backgroundColor: color }}
+                                        onClick={() => setSelectedColor(color)}
+                                    ></div>
+                                ))}
+                            </div>
+                            <button onClick={handleCreateGroup}>Create</button>
+                            <button onClick={() => setShowModal(false)}>Cancel</button>
+                        </div>
+                    </div>
+                )}
 
             </div>
         </div>
